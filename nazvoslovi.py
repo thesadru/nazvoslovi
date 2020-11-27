@@ -29,7 +29,7 @@ with open('tables/table.csv', 'r', encoding='utf-8') as file:
     for line in file:
         data = [line.strip() for line in line.split(',')]
         table[data[1]] = {
-            "proton": data[0],
+            "proton": int(data[0]),
             "sign": data[1],
             "name": data[2],
             "naming": data[3]
