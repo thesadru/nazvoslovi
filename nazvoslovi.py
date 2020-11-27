@@ -559,7 +559,7 @@ class HydrogenSalt(BaseCompound):
             self.acid = HydrogenAcid(acid,True)
             self.element = Element(element,True)
             # use cross rule
-            self.element.amount,self.acid.amount = cross_rule(self.element.oxidation,self.acid.amount)
+            self.element.amount,self.acid.amount = cross_rule(self.element.oxidation,self.acid.oxidation)
         else:
             # take out element and acid
             element,acid = sign.split(maxsplit=1)
