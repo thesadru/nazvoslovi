@@ -8,6 +8,7 @@ People who speak english will be reading this anyway, so it doesn't matter.
 import json
 import re
 from typing import List, Optional, Set, Tuple, Union
+from math import gcd
 
 # constants for detection and formatting of compounds
 SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
@@ -115,6 +116,29 @@ def subscript(amount: int, oxidation: int=None) -> str:
     else:
         return amount
 
+def factor(x,y) -> Tuple[int,int]:
+    """
+    Takes in two integers and divides tham by their greatest common denominator.
+    """
+    g = gcd(x,y)
+    return x//g,y//g
+
+def cross_rule(x,y) -> Tuple[int,int]:
+    """
+    Takes in a tuple of amounts or oxidation, returns their output of cross rule.
+    If amount is given, y will be the negative one.
+    If oxidation is given, it's expected y is the negative one.
+    
+    ```
+    x.oxidation,y.oxidation = cross_rule(x.amount,y.amount)
+    ```
+    """
+    x,y = factor(x,y)
+    # this is simply for simplicity outside the function
+    if y>=0:
+        return y,-x
+    else:
+        return -y,x
 
 # =============================================================================
 # Compounds
@@ -261,14 +285,15 @@ class SingleElementCompound(BaseCompound):
             self.main = Element(self.main_sign, False, oxidation=self.main_oxidation)
             self.alt = Element(alt,True)
             # do cross rule to complete
-            self.main.amount,self.alt.amount = self.alt.oxidation,-self.main.oxidation
+            self.main.amount,self.alt.amount = cross_rule(self.main.oxidation,self.alt.oxidation)
         else:
             # take out the sign of main element out of sign
             alt,main = sign.split()
             # create elements
             self.main = Element(main, oxidation=self.main_oxidation)
             self.alt = Element(alt)
-            self.alt.oxidation = -self.main.get_oxidation()//self.alt.amount # will fix oxidation maybe sometimes
+            self.alt.oxidation = -self.main.get_oxidation()//self.alt.amount
+            self.main.amount,self.alt.amount = factor(self.main.amount,self.alt.amount) # somewhere in the code an errror was caused
     
     def tosign(self, oxidation: bool=False):
         return self.alt.tosign(oxidation)+self.main.tosign(oxidation)
@@ -365,13 +390,13 @@ class SaltAcid(BaseCompound):
     """
     typename = 'kyselina soli'
     
-    def __init__(self, sign: str, name: bool=None, oxidation: int=...):
+    def __init__(self, sign: str, name: bool=None, amount: int=..., oxidation: int=...):
         """
         Takes in a sign and creates an element with it.
         You can specify wheter the element is a name or a sign with `name`.
         If not set, it is automatically figured out with regex.
         
-        You must set an oxidation if giving a sign.
+        You must set an oxidation and amount if giving a sign.
         """
         if name is None:
             name = is_compound_name(sign)
@@ -385,21 +410,15 @@ class SaltAcid(BaseCompound):
             self.oxygen = Element(f'O',amount=(self.element.get_oxidation()-self.oxidation)//2,oxidation=-2)
             
         else:
-            # figure out the amount in case it is set, otherwise 1
-            if '(' in sign:
-                sign,amount = sign[1:].split(')')
-                self.amount = int(amount)
-            else:
-                self.amount = 1
+            # save oxidation and amount
+            self.oxidation = oxidation
+            self.amount = amount
             # take out element and oxygen
             element,oxygen = sign.split()
             # create element and oxygen
-            self.element = Element(element)
             self.oxygen = Element(oxygen,oxidation=-2)
-            # save oxidation
-            self.oxidation = oxidation
             # figure out the oxygen by completing oxidation so it's `self.oxidation`
-            self.element.oxidation = -(self.oxygen.get_oxidation()-self.oxidation)
+            self.element = Element(element,oxidation=-(self.oxygen.get_oxidation()-self.oxidation))
     
     def _tosign(self, oxidation: bool=False):
         return self.element.tosign(oxidation)+self.oxygen.tosign(oxidation)
@@ -431,15 +450,21 @@ class Salt(BaseCompound):
             self.element = Element(element,True)
             self.acid = SaltAcid(acid,True)
             # use cross rule
-            self.element.oxidation,self.acid.amount = self.acid.amount,self.element.oxidation
+            self.element.amount,self.acid.amount = cross_rule(self.element.oxidation,self.acid.oxidation)
         else:
             # take out element and acid
             element,acid = sign.split(maxsplit=1)
+            # figure out the acid amount in case it is set, otherwise 1
+            if '(' in acid:
+                acid,acid_amount = acid[1:].split(')')
+                acid_amount = int(acid_amount)
+            else:
+                acid_amount = 1
             # create element and acid
             self.element = Element(element)
-            self.acid = SaltAcid(acid,False,oxidation=-self.element.amount)
             # use cross rule
-            self.element.oxidation = self.acid.amount
+            self.element.oxidation,acid_oxidation = cross_rule(self.element.amount,acid_amount)
+            self.acid = SaltAcid(acid,False,amount=acid_amount,oxidation=acid_oxidation)
     
     def tosign(self, oxidation: bool=False):
         return self.element.tosign(oxidation)+self.acid.tosign(oxidation)
@@ -455,13 +480,14 @@ class HydrogenAcid(BaseCompound):
     """
     typename = 'kyselina hydrogensoli'
     amount = 1
-    def __init__(self, sign: str, name: bool=None, oxidation: int=...):
+    
+    def __init__(self, sign: str, name: bool=None, amount: int=..., oxidation: int=...):
         """
         Takes in a sign and creates an element with it.
         You can specify wheter the element is a name or a sign with `name`.
         If not set, it is automatically figured out with regex.
         
-        You must set an oxidation if giving a sign.
+        You must set an amount and oxidation if giving a sign.
         """
         if name is None:
             name = is_compound_name(sign)
@@ -492,21 +518,17 @@ class HydrogenAcid(BaseCompound):
             self.hydrogen.amount = expected_hydrogen
             
         else:
-            # figure out the amount in case it is set, otherwise 1
-            if '(' in sign:
-                sign,amount = sign[1:].split(')')
-                self.amount = int(amount)
-            else:
-                self.amount = 1
+            # save oxidation and amount
+            self.oxidation = oxidation
+            self.amount = amount
+            
             # take out expected hydrogen, element and oxygen
             expected_hydrogen,element,oxygen = sign.split()
             # create hydrogen, oxygen and element
             self.hydrogen = Element(expected_hydrogen,oxidation=1)
             self.oxygen = Element(oxygen,oxidation=-2)
             # figure out the oxygen by completing oxidation so it's 0
-            self.element = Element(element,oxidation=-(self.oxygen.get_oxidation()+self.hydrogen.get_oxidation()-oxidation))
-            # saves oxidation
-            self.oxidation = oxidation
+            self.element = Element(element,oxidation=-(self.oxygen.get_oxidation()+self.hydrogen.get_oxidation()-self.oxidation))
     
     def _tosign(self, oxidation: bool=False):
         return self.hydrogen.tosign(oxidation)+self.element.tosign(oxidation)+self.oxygen.tosign(oxidation)
@@ -535,17 +557,24 @@ class HydrogenSalt(BaseCompound):
             acid,element = sign.split()
             # create acid and element
             self.acid = HydrogenAcid(acid,True)
+            self.element = Element(element,True)
             # use cross rule
-            self.element = Element(element,True,amount=-self.acid.oxidation)
-            self.acid.amount = self.element.oxidation
+            self.element.amount,self.acid.amount = cross_rule(self.element.oxidation,self.acid.amount)
         else:
             # take out element and acid
             element,acid = sign.split(maxsplit=1)
+            # figure out the acid amount in case it is set, otherwise 1
+            if '(' in acid:
+                acid,acid_amount = acid[1:].split(')')
+                acid_amount = int(acid_amount)
+            else:
+                acid_amount = 1
             # create acid and element
             self.element = Element(element)
             # use cross rule
-            self.acid = HydrogenAcid(acid,False,-self.element.amount)
-            self.element.oxidation = self.acid.amount
+            
+            self.element.oxidation,acid_oxidation = cross_rule(self.element.amount,acid_amount)
+            self.acid = HydrogenAcid(acid,False, amount=acid_amount,oxidation=acid_oxidation)
     
     def tosign(self, oxidation: bool=False):
         return self.element.tosign(oxidation)+self.acid.tosign(oxidation)

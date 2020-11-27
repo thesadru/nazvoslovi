@@ -8,7 +8,7 @@
     "He": {
         "sign": "He",
         "name": "Helium",
-        "naming": null,
+        "naming": "Hel",
         "proton": 2
     },
     "Li": {
@@ -44,19 +44,19 @@
     "O": {
         "sign": "O",
         "name": "Kysl\u00edk",
-        "naming": null,
+        "naming": "kysl",
         "proton": 8
     },
     "F": {
         "sign": "F",
         "name": "Fluor",
-        "naming": null,
+        "naming": "fluor",
         "proton": 9
     },
     "Ne": {
         "sign": "Ne",
         "name": "Neon",
-        "naming": null,
+        "naming": "neon",
         "proton": 10
     },
     "Na": {
@@ -104,7 +104,7 @@
     "Ar": {
         "sign": "Ar",
         "name": "Argon",
-        "naming": null,
+        "naming": "argon",
         "proton": 18
     },
     "K": {
@@ -212,7 +212,7 @@
     "Kr": {
         "sign": "Kr",
         "name": "Krypton",
-        "naming": null,
+        "naming": "krypton",
         "proton": 36
     },
     "Rb": {
@@ -284,7 +284,7 @@
     "Cd": {
         "sign": "Cd",
         "name": "Kadmium",
-        "naming": "kad",
+        "naming": "kadem",
         "proton": 48
     },
     "In": {
@@ -320,7 +320,7 @@
     "Xe": {
         "sign": "Xe",
         "name": "Xenon",
-        "naming": null,
+        "naming": "xenon",
         "proton": 54
     },
     "Cs": {
@@ -506,7 +506,7 @@
     "Rn": {
         "sign": "Rn",
         "name": "Randon",
-        "naming": null,
+        "naming": "randon",
         "proton": 86
     },
     "Fr": {
