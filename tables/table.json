@@ -1,0 +1,530 @@
+{
+    "H": {
+        "sign": "H",
+        "name": "Vod\u00edk",
+        "naming": "vod",
+        "proton": 1
+    },
+    "He": {
+        "sign": "He",
+        "name": "Helium",
+        "naming": null,
+        "proton": 2
+    },
+    "Li": {
+        "sign": "Li",
+        "name": "Lithium",
+        "naming": "lit",
+        "proton": 3
+    },
+    "Be": {
+        "sign": "Be",
+        "name": "Beryllium",
+        "naming": "ber",
+        "proton": 4
+    },
+    "B": {
+        "sign": "B",
+        "name": "Bor",
+        "naming": "bor",
+        "proton": 5
+    },
+    "C": {
+        "sign": "C",
+        "name": "Uhl\u00edk",
+        "naming": "uhel",
+        "proton": 6
+    },
+    "N": {
+        "sign": "N",
+        "name": "Dus\u00edk",
+        "naming": "dus",
+        "proton": 7
+    },
+    "O": {
+        "sign": "O",
+        "name": "Kysl\u00edk",
+        "naming": null,
+        "proton": 8
+    },
+    "F": {
+        "sign": "F",
+        "name": "Fluor",
+        "naming": null,
+        "proton": 9
+    },
+    "Ne": {
+        "sign": "Ne",
+        "name": "Neon",
+        "naming": null,
+        "proton": 10
+    },
+    "Na": {
+        "sign": "Na",
+        "name": "Sod\u00edk",
+        "naming": "sod",
+        "proton": 11
+    },
+    "Mg": {
+        "sign": "Mg",
+        "name": "Ho\u0159\u010d\u00edk",
+        "naming": "ho\u0159e\u010d",
+        "proton": 12
+    },
+    "Al": {
+        "sign": "Al",
+        "name": "Hlin\u00edk",
+        "naming": "hlin",
+        "proton": 13
+    },
+    "Si": {
+        "sign": "Si",
+        "name": "K\u0159em\u00edk",
+        "naming": "k\u0159em",
+        "proton": 14
+    },
+    "P": {
+        "sign": "P",
+        "name": "Fosfor",
+        "naming": "fosfor",
+        "proton": 15
+    },
+    "S": {
+        "sign": "S",
+        "name": "S\u00edra",
+        "naming": "sir",
+        "proton": 16
+    },
+    "Cl": {
+        "sign": "Cl",
+        "name": "Chlor",
+        "naming": "chlor",
+        "proton": 17
+    },
+    "Ar": {
+        "sign": "Ar",
+        "name": "Argon",
+        "naming": null,
+        "proton": 18
+    },
+    "K": {
+        "sign": "K",
+        "name": "Drasl\u00edk",
+        "naming": "drasel",
+        "proton": 19
+    },
+    "Ca": {
+        "sign": "Ca",
+        "name": "V\u00e1pn\u00edk",
+        "naming": "v\u00e1pe",
+        "proton": 20
+    },
+    "Sc": {
+        "sign": "Sc",
+        "name": "Skandium",
+        "naming": "skand",
+        "proton": 21
+    },
+    "Ti": {
+        "sign": "Ti",
+        "name": "Thallium",
+        "naming": "thal",
+        "proton": 81
+    },
+    "V": {
+        "sign": "V",
+        "name": "Vanad",
+        "naming": "vanad",
+        "proton": 23
+    },
+    "Cr": {
+        "sign": "Cr",
+        "name": "Chrom",
+        "naming": "chrom",
+        "proton": 24
+    },
+    "Mn": {
+        "sign": "Mn",
+        "name": "Mangan",
+        "naming": "mangan",
+        "proton": 25
+    },
+    "Fe": {
+        "sign": "Fe",
+        "name": "\u017delezo",
+        "naming": "\u017eelez",
+        "proton": 26
+    },
+    "Co": {
+        "sign": "Co",
+        "name": "Kobalt",
+        "naming": "kobalt",
+        "proton": 27
+    },
+    "Ni": {
+        "sign": "Ni",
+        "name": "Nikl",
+        "naming": "nikel",
+        "proton": 28
+    },
+    "Cu": {
+        "sign": "Cu",
+        "name": "M\u011bd",
+        "naming": "m\u011b\u010f",
+        "proton": 29
+    },
+    "Zn": {
+        "sign": "Zn",
+        "name": "Zinek",
+        "naming": "zine\u010d",
+        "proton": 30
+    },
+    "Ga": {
+        "sign": "Ga",
+        "name": "Galium",
+        "naming": "gal",
+        "proton": 31
+    },
+    "Ge": {
+        "sign": "Ge",
+        "name": "Germanium",
+        "naming": "ger",
+        "proton": 32
+    },
+    "As": {
+        "sign": "As",
+        "name": "Arsen",
+        "naming": "arsen",
+        "proton": 33
+    },
+    "Se": {
+        "sign": "Se",
+        "name": "Selen",
+        "naming": "selen",
+        "proton": 34
+    },
+    "Br": {
+        "sign": "Br",
+        "name": "Brom",
+        "naming": "brom",
+        "proton": 35
+    },
+    "Kr": {
+        "sign": "Kr",
+        "name": "Krypton",
+        "naming": null,
+        "proton": 36
+    },
+    "Rb": {
+        "sign": "Rb",
+        "name": "Rubdium",
+        "naming": "rub",
+        "proton": 37
+    },
+    "Sr": {
+        "sign": "Sr",
+        "name": "Stroncium",
+        "naming": "stronc",
+        "proton": 38
+    },
+    "Y": {
+        "sign": "Y",
+        "name": "Yttrium",
+        "naming": "yttr",
+        "proton": 39
+    },
+    "Zr": {
+        "sign": "Zr",
+        "name": "Zirkonium",
+        "naming": "zir",
+        "proton": 40
+    },
+    "Nb": {
+        "sign": "Nb",
+        "name": "Niob",
+        "naming": "niob",
+        "proton": 41
+    },
+    "Mo": {
+        "sign": "Mo",
+        "name": "Molbyden",
+        "naming": "molb",
+        "proton": 42
+    },
+    "Tc": {
+        "sign": "Tc",
+        "name": "Technecium",
+        "naming": "tech",
+        "proton": 43
+    },
+    "Ru": {
+        "sign": "Ru",
+        "name": "Ruthenium",
+        "naming": "ruth",
+        "proton": 44
+    },
+    "Rh": {
+        "sign": "Rh",
+        "name": "Rhodium",
+        "naming": "rhod",
+        "proton": 45
+    },
+    "Pd": {
+        "sign": "Pd",
+        "name": "Palladium",
+        "naming": "pallad",
+        "proton": 46
+    },
+    "Ag": {
+        "sign": "Ag",
+        "name": "St\u0159\u00edbro",
+        "naming": "st\u0159\u00edbr",
+        "proton": 47
+    },
+    "Cd": {
+        "sign": "Cd",
+        "name": "Kadmium",
+        "naming": "kad",
+        "proton": 48
+    },
+    "In": {
+        "sign": "In",
+        "name": "Indium",
+        "naming": "ind",
+        "proton": 49
+    },
+    "Sn": {
+        "sign": "Sn",
+        "name": "C\u00edn",
+        "naming": "c\u00ed",
+        "proton": 50
+    },
+    "Sb": {
+        "sign": "Sb",
+        "name": "Antimon",
+        "naming": "antimon",
+        "proton": 51
+    },
+    "Te": {
+        "sign": "Te",
+        "name": "Tellur",
+        "naming": "tellur",
+        "proton": 52
+    },
+    "I": {
+        "sign": "I",
+        "name": "Jod",
+        "naming": "jod",
+        "proton": 53
+    },
+    "Xe": {
+        "sign": "Xe",
+        "name": "Xenon",
+        "naming": null,
+        "proton": 54
+    },
+    "Cs": {
+        "sign": "Cs",
+        "name": "Cesium",
+        "naming": "ces",
+        "proton": 55
+    },
+    "Ba": {
+        "sign": "Ba",
+        "name": "Baryum",
+        "naming": "bar",
+        "proton": 56
+    },
+    "La": {
+        "sign": "La",
+        "name": "Lathnan",
+        "naming": "lathn",
+        "proton": 57
+    },
+    "Ce": {
+        "sign": "Ce",
+        "name": "Cer",
+        "naming": "cer",
+        "proton": 58
+    },
+    "Pr": {
+        "sign": "Pr",
+        "name": "Praseodym",
+        "naming": "prasedo",
+        "proton": 59
+    },
+    "Nd": {
+        "sign": "Nd",
+        "name": "Neodym",
+        "naming": "neod",
+        "proton": 60
+    },
+    "Pm": {
+        "sign": "Pm",
+        "name": "Promethium",
+        "naming": "promet",
+        "proton": 61
+    },
+    "Sm": {
+        "sign": "Sm",
+        "name": "Samarium",
+        "naming": "samar",
+        "proton": 62
+    },
+    "Eu": {
+        "sign": "Eu",
+        "name": "Europium",
+        "naming": "europ",
+        "proton": 63
+    },
+    "Gd": {
+        "sign": "Gd",
+        "name": "Gadolinium",
+        "naming": "gadol",
+        "proton": 64
+    },
+    "Tb": {
+        "sign": "Tb",
+        "name": "Terbium",
+        "naming": "terb",
+        "proton": 65
+    },
+    "Dy": {
+        "sign": "Dy",
+        "name": "Dyprosium",
+        "naming": "dypr",
+        "proton": 66
+    },
+    "Ho": {
+        "sign": "Ho",
+        "name": "Holmium",
+        "naming": "holm",
+        "proton": 67
+    },
+    "Er": {
+        "sign": "Er",
+        "name": "Erbium",
+        "naming": "erb",
+        "proton": 68
+    },
+    "Tm": {
+        "sign": "Tm",
+        "name": "Thulium",
+        "naming": "thul",
+        "proton": 69
+    },
+    "Yb": {
+        "sign": "Yb",
+        "name": "Ytterbium",
+        "naming": "ytterb",
+        "proton": 70
+    },
+    "Lu": {
+        "sign": "Lu",
+        "name": "Lutecium",
+        "naming": "lutec",
+        "proton": 71
+    },
+    "Hf": {
+        "sign": "Hf",
+        "name": "Hafnium",
+        "naming": "haf",
+        "proton": 72
+    },
+    "Ta": {
+        "sign": "Ta",
+        "name": "Tanal",
+        "naming": "tanal",
+        "proton": 73
+    },
+    "W": {
+        "sign": "W",
+        "name": "Wolfram",
+        "naming": "wolfram",
+        "proton": 74
+    },
+    "Re": {
+        "sign": "Re",
+        "name": "Rhenium",
+        "naming": "rhen",
+        "proton": 75
+    },
+    "Os": {
+        "sign": "Os",
+        "name": "Osmium",
+        "naming": "osm",
+        "proton": 76
+    },
+    "Ir": {
+        "sign": "Ir",
+        "name": "Irdium",
+        "naming": "ird",
+        "proton": 77
+    },
+    "Pt": {
+        "sign": "Pt",
+        "name": "Platinu",
+        "naming": "plat",
+        "proton": 78
+    },
+    "Au": {
+        "sign": "Au",
+        "name": "Zlato",
+        "naming": "zlat",
+        "proton": 79
+    },
+    "Hg": {
+        "sign": "Hg",
+        "name": "Rtu\u0165",
+        "naming": "rtu\u0165",
+        "proton": 80
+    },
+    "Pb": {
+        "sign": "Pb",
+        "name": "Olovo",
+        "naming": "olov",
+        "proton": 82
+    },
+    "Bi": {
+        "sign": "Bi",
+        "name": "Bismut",
+        "naming": "bism",
+        "proton": 83
+    },
+    "Po": {
+        "sign": "Po",
+        "name": "Polonium",
+        "naming": "pol",
+        "proton": 84
+    },
+    "At": {
+        "sign": "At",
+        "name": "Astat",
+        "naming": "ast",
+        "proton": 85
+    },
+    "Rn": {
+        "sign": "Rn",
+        "name": "Randon",
+        "naming": null,
+        "proton": 86
+    },
+    "Fr": {
+        "sign": "Fr",
+        "name": "Francium",
+        "naming": "franc",
+        "proton": 87
+    },
+    "Ra": {
+        "sign": "Ra",
+        "name": "Radium",
+        "naming": "rad",
+        "proton": 88
+    },
+    "Ac": {
+        "sign": "Ac",
+        "name": "Aktinium",
+        "naming": "akt",
+        "proton": 89
+    }
+}
