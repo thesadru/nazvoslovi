@@ -121,7 +121,7 @@ def subscript(amount: int, oxidation: int=None) -> str:
     """
     amount = str(amount).translate(SUB)
     if oxidation is not None:
-        if oxidation>=0:
+        if 0<=oxidation<=8:
             return OXIDATION[oxidation]+amount
         else:
             return '⁻'+OXIDATION[-oxidation]+amount
@@ -140,10 +140,7 @@ def cross_rule(x,y) -> Tuple[int,int]:
     Takes in a tuple of amounts or oxidation, returns their output of cross rule.
     If amount is given, y will be the negative one.
     If oxidation is given, it's expected y is the negative one.
-    
-    ```
-    x.oxidation,y.oxidation = cross_rule(x.amount,y.amount)
-    ```
+    `x.oxidation,y.oxidation = cross_rule(x.amount,y.amount)`
     """
     x,y = factor(x,y)
     # this is simply for simplicity outside the function
@@ -414,13 +411,20 @@ class SaltAcid(BaseCompound):
             name = is_compound_name(sign)
         
         if name:
-            # create the element from the name
-            self.element = Element(sign,True,tablekey='salt')
+            # detect multiple elements
+            for element_amount,s in enumerate(amount_table[1:],1):
+                if sign.startswith(s):
+                    sign = sign.replace(s,'')
+                    # create the element from the name and amount
+                    self.element = Element(sign,True,tablekey='salt',amount=element_amount)
+                    break
+            else:
+                # create the element from the name
+                self.element = Element(sign,True,tablekey='salt')
             # complete oxidation
             self.oxidation = -2 if self.element.get_oxidation()%2 == 0 else -1
             # figure out the oxygen by completing oxidation so it's `self.oxidation`
             self.oxygen = Element(f'O',amount=(self.element.get_oxidation()-self.oxidation)//2,oxidation=-2)
-            
         else:
             # save oxidation and amount
             self.oxidation = oxidation
@@ -671,6 +675,8 @@ def recognize(s: str) -> Union[BaseCompound,None,NazvosloviException]:
                 return compound(sign, False)
     except NazvosloviException as e:
         return e
+    except Exception as e:
+        print('Sloučenina rozpoznána, ale je chybná:',e)
     else:
         return None
 

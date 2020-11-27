@@ -8,6 +8,8 @@ Použijte v konzoli příkaz `python main.py <sloučeniny>`. Vypíší se tabulk
 Program automaticky zjišťuje typ sloučeniny (pokud je implementovaná) a názvy prvků.
 
 # pomoc a varování
+Tento program je určen jen pro jednoduché sločeniny, žádné dichromanny a podobné věci nejsou podporovány, protože to jsou moc komplikované výjimky, aby se mohli implementovat.
+
 Názvosloví síry je třeba psát bez háčků a čárek, protože nelze implementovat "siřitan" a "síran" jednoduše zároveň.
 Program využívá jen "ičný" a ne "ečný". Dokáže ho rozpoznat ale ne napsat.
 Někdy se objeví dvě n za sebou, to ještě nevím jak vyřešit.
@@ -15,3 +17,6 @@ Nečekané sloučeniny (jako například dychroman) vrátí error. Doporučuji n
 
 # dokumentace kódu
 Kód je dokumentován v angličtině, včetně sloučenin. Některé názvy mohou být špatně přeloženy, ale já tomu většinou rozumím, takže se mi to zdá v pohodě.
+
+# plánované
+Podporovat dichroman a podobné sloučeniny.
