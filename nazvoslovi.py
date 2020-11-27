@@ -5,7 +5,6 @@ Since czech is very... unique,  this was more complicated than expected.
 I can't be bothered to make czech comments, I just kept english ones.
 People who speak english will be reading this anyway, so it doesn't matter.
 """
-import json
 import re
 from typing import List, Optional, Set, Tuple, Union
 from math import gcd
@@ -25,12 +24,25 @@ class UnknownElement(NazvosloviException): pass
 class WrongOxidation(NazvosloviException): pass
 
 # load tables
-with open('tables/table.json', 'r') as file:
-    table = json.load(file)
-with open('tables/oxidation.json', 'r') as file:
-    oxidation_table = json.load(file)
-with open('tables/amount.json', 'r') as file:
-    amount_table = json.load(file)
+with open('tables/table.csv', 'r', encoding='utf-8') as file:
+    table = {}
+    for line in file:
+        data = [line.strip() for line in line.split(',')]
+        table[data[1]] = {
+            "proton": data[0],
+            "sign": data[1],
+            "name": data[2],
+            "naming": data[3]
+        }
+
+with open('tables/oxidation.csv', 'r', encoding='utf-8') as file:
+    oxidation_table = {}
+    for line in file:
+        data = [line.strip() for line in line.split(',')]
+        oxidation_table[data[0]] = ['']+data[1:]
+    
+with open('tables/amount.csv', 'r', encoding='utf-8') as file:
+    amount_table = ['']+[i.strip() for i in file.read().split(',')]
 
 # functions for creating compounds
 def is_compound_name(s: str, doraise: bool=True) -> bool:
