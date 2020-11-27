@@ -13,7 +13,7 @@ from math import gcd
 # constants for detection and formatting of compounds
 SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 SUP = str.maketrans("0123456789","⁰¹²³⁴⁵⁶⁷⁸⁹")
-OXIDATION = ['^','ᶦ','ᶦᶦ','ᶦᶦᶦ','ᶦᵛ','ᵛ','ᵛᶦ','ᵛᶦᶦ']
+OXIDATION = ['^','ᶦ','ᶦᶦ','ᶦᶦᶦ','ᶦᵛ','ᵛ','ᵛᶦ','ᵛᶦᶦ','ᵛᶦᶦᶦ']
 NOR = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 RE_SIGN = r"^(\(?[A-Z][a-z]?\d{0,2} ?\)?)*$"
 RE_NAME = r"^[^0-9]*$"
