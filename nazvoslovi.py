@@ -86,7 +86,7 @@ def load_name(name: str, tablekey='element') -> Tuple[dict, int]:
                     _load_oxidation(oxidation,tablekey)
                 )
     
-    raise UnknownElement('Nebyl rozpoznán prvek "{name}"')
+    raise UnknownElement(f'Nebyl rozpoznán prvek "{name}"')
 
 def parse_element_sign(s: str) -> Tuple[str,int]:
     """
@@ -321,9 +321,10 @@ class Acid(BaseCompound):
             # acid is only a literal "kyselina"
             if 'hydrogen' in sign:
                 # take out hydrogen and element
-                acid,hydrogen,element = sign.split()
+                acid,element = sign.split()
+                hydrogen,element = element.split('hydrogen')
                 # figure out the number of hydrogens
-                hydrogen = amount_table.index(hydrogen[:-len('hydrogen')])
+                hydrogen = amount_table.index(hydrogen)
                 # create the element with the acid
                 self.element = Element(element,True,tablekey='acid')
             else:
