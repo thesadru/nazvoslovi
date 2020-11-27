@@ -11,9 +11,9 @@ from typing import List, Optional, Set, Tuple, Union
 
 # constants for detection and formatting of compounds
 SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
-SUP = str.maketrans("0123456789","¹²³⁴⁵⁶⁷⁸⁹⁰")
+SUP = str.maketrans("0123456789","⁰¹²³⁴⁵⁶⁷⁸⁹")
 OXIDATION = ['^','ᶦ','ᶦᶦ','ᶦᶦᶦ','ᶦᵛ','ᵛ','ᵛᶦ','ᵛᶦᶦ']
-NOR = str.maketrans("₀₁₂₃₄₅₆₇₈₉"+"¹²³⁴⁵⁶⁷⁸⁹⁰", "0123456789"*2)
+NOR = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 RE_SIGN = r"^(\(?[A-Z][a-z]?\d{0,2} ?\)?)*$"
 RE_NAME = r"^[^0-9]*$"
 
@@ -601,7 +601,7 @@ vzoreček: {sign}
 vzoreček s oxi.: {oxisign}
 """.strip()
 
-def fix_Compound_sign(s: str) -> str:
+def fix_compound_sign(s: str) -> str:
     """
     Takes in a sign and adds a space after every element.
     """
@@ -620,7 +620,7 @@ def recognize(s: str) -> Union[BaseCompound,None,NazvosloviException]:
     Recognizes a regural experession and returns a Compound class.
     """
     name = s
-    sign = fix_Compound_sign(s)
+    sign = fix_compound_sign(s.translate(NOR))
     try:
         for compound in COMPOUNDS:
             if compound.re_name.match(name):
