@@ -210,6 +210,19 @@ class BaseCompound:
     def oxisign(self) -> str:
         """Sign of compound with oxidation."""
         return self.tosign(True)
+    
+    def todict(self, **extra) -> dict:
+        """
+        Takes in a compund, returns a dictionary of names.
+        Used for cmd arguments.
+        """
+        return {
+            'typename': self.typename,
+            'name': self.name,
+            'sign': self.sign,
+            'oxisign': self.oxisign,
+            **extra
+        }
 
 class Element(BaseCompound):
     """
@@ -681,10 +694,4 @@ def recognize(s: str) -> Union[BaseCompound,None,NazvosloviException]:
         return None
 
 def pprint(compound: BaseCompound, entry: str='neznámé') -> str:
-    return pstring.format(
-        entry=entry,
-        typename=compound.typename,
-        name=compound.name,
-        sign=compound.sign,
-        oxisign=compound.oxisign
-    )
+    return pstring.format(**compound.todict(entry=entry))
